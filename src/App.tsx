@@ -1,17 +1,29 @@
-import './App.css';
+// import { Counter } from './Counter'
+import './App.css'
+// import { Accordion } from './Accordion'
+// import { Input } from './Input'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { MoviesList } from './movies/MoviesList'
+import { MovieDetail } from './movies/MovieDetail'
 
 function App(): JSX.Element {
   return (
     <div className="App">
-      <header className="App-header">
-        <HelloWorld/>
-      </header>
+        <Router>
+          <Switch>
+            <Route path="/movie/:id">
+              <MovieDetail/>
+            </Route>
+            <Route path="/">
+              {/* <Counter/>
+              <Accordion/>
+              <Input/> */}
+              <MoviesList/>
+            </Route>
+          </Switch>
+        </Router>
     </div>
-  );
+  )
 }
 
-function HelloWorld(): JSX.Element {
-  return <h1>Hello World</h1>;
-}
-
-export default App;
+export default App
